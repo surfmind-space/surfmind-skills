@@ -17,7 +17,6 @@ export type NormalizedSkill = {
   slug: string;
   name: string;
   description: string;
-  license: string | null;
   author: string | null;
   icon: string | null;
   action_menu: ActionMenu | null;
@@ -34,7 +33,6 @@ const frontmatterSchema = z
   .object({
     name: z.string().trim().min(1),
     description: z.string().trim().min(1),
-    license: z.string().trim().min(1).optional().nullable(),
     metadata: z
       .object({
         author: z.string().trim().min(1).optional().nullable(),
@@ -111,12 +109,9 @@ function normalizeFrontmatter(
   const raw = rawFrontmatter as Record<string, unknown>;
   const metadata = (raw.metadata ?? {}) as Record<string, unknown>;
 
-  const author = nullableString(metadata.author ?? raw.author);
-  const icon = nullableString(metadata.icon ?? raw.icon);
-  const actionMenu = normalizeActionMenu(
-    metadata.actionMenu ?? raw.actionMenu ?? raw["action-menu"],
-    slug,
-  );
+  const author = nullableString(metadata.author);
+  const icon = nullableString(metadata.icon);
+  const actionMenu = normalizeActionMenu(metadata.actionMenu, slug);
 
   if (icon && !KNOWN_PROMPT_ICONS.includes(icon as never)) {
     throw new Error(
@@ -127,7 +122,6 @@ function normalizeFrontmatter(
   return {
     name: frontmatter.name.trim(),
     description: frontmatter.description.trim(),
-    license: nullableString(raw.license),
     author,
     icon,
     action_menu: actionMenu,

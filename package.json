@@ -1,0 +1,18 @@
+{
+  "name": "surfmind-skills",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "tsx scripts/validate.ts",
+    "publish": "tsx scripts/publish.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "yaml": "^2.7.1",
+    "zod": "^3.24.4"
+  }
+}
