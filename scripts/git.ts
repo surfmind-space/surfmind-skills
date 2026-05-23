@@ -43,6 +43,16 @@ export function getChangedSkillDiff(options: {
   head?: string;
   publish?: boolean;
 }): DiffStatus[] {
+  const before = process.env.GITHUB_EVENT_BEFORE;
+  const sha = process.env.GITHUB_SHA;
+
+  if (!options.base && !options.head && before && sha && isAllZeroSha(before)) {
+    return git(["ls-tree", "-r", "--name-only", sha, "--", "skills/"])
+      .split("\n")
+      .filter(Boolean)
+      .map((filePath) => ({ status: "A", paths: [filePath] }));
+  }
+
   const range = getDiffRange(options);
   const output = git([
     "diff",
@@ -53,6 +63,10 @@ export function getChangedSkillDiff(options: {
     "skills/",
   ]);
 
+  return parseNameStatusOutput(output);
+}
+
+function parseNameStatusOutput(output: string): DiffStatus[] {
   if (!output) return [];
 
   return output.split("\n").map((line) => {
