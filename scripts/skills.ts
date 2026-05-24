@@ -19,7 +19,7 @@ export type NormalizedSkill = {
   description: string;
   author: string | null;
   icon: string | null;
-  action_menu: ActionMenu | null;
+  actionMenu: ActionMenu | null;
   prompt: string;
   files: string[];
 };
@@ -124,7 +124,7 @@ function normalizeFrontmatter(
     description: frontmatter.description.trim(),
     author,
     icon,
-    action_menu: actionMenu,
+    actionMenu,
   };
 }
 

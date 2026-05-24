@@ -29,27 +29,27 @@ for (const slug of changedSkills.active) {
   const payload = buildPublishPayload(skill);
 
   await postJson(`${cloudUrl}/api/skills/admin/upsert`, payload);
-  console.log(`Published ${slug} (${payload.source_tree_sha})`);
+  console.log(`Published ${slug} (${payload.sourceTreeSha})`);
 }
 
 type PublishSkillPayload = NormalizedSkill & {
-  source_type: "native";
-  source_repo_url: string;
-  source_path: string;
-  source_branch: string;
-  source_tree_sha: string;
-  source_updated_at: string;
+  sourceType: "native";
+  sourceRepoUrl: string;
+  sourcePath: string;
+  sourceBranch: string;
+  sourceTreeSha: string;
+  sourceUpdatedAt: string;
 };
 
 function buildPublishPayload(skill: NormalizedSkill): PublishSkillPayload {
   return {
     ...skill,
-    source_type: "native",
-    source_repo_url: getSourceRepoUrl(),
-    source_path: `skills/${skill.slug}`,
-    source_branch: getSourceBranch(),
-    source_tree_sha: getSkillTreeSha(skill.slug),
-    source_updated_at: getSkillCommitDate(skill.slug),
+    sourceType: "native",
+    sourceRepoUrl: getSourceRepoUrl(),
+    sourcePath: `skills/${skill.slug}`,
+    sourceBranch: getSourceBranch(),
+    sourceTreeSha: getSkillTreeSha(skill.slug),
+    sourceUpdatedAt: getSkillCommitDate(skill.slug),
   };
 }
 
