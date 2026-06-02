@@ -100,7 +100,14 @@ export function getSkillCommitDate(slug: string): string {
     throw new Error(`Could not resolve commit date for skills/${slug}`);
   }
 
-  return output;
+  const date = new Date(output);
+  if (Number.isNaN(date.getTime())) {
+    throw new Error(
+      `Could not parse commit date "${output}" for skills/${slug}`,
+    );
+  }
+
+  return date.toISOString();
 }
 
 export function getSourceRepoUrl(): string {

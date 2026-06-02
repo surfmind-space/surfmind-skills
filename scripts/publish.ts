@@ -9,6 +9,8 @@ import {
 } from "./git.js";
 import { readSkill, type NormalizedSkill } from "./skills.js";
 
+const SLUG_NAMESPACE = "surfmind";
+
 const rootDir = process.cwd();
 const cloudUrl = requiredEnv("SURFMIND_CLOUD_URL").replace(/\/$/, "");
 const adminApiKey = requiredEnv("SKILLS_ADMIN_API_KEY");
@@ -19,17 +21,18 @@ if (changedSkills.active.length === 0 && changedSkills.deleted.length === 0) {
   process.exit(0);
 }
 
-for (const slug of changedSkills.deleted) {
+for (const name of changedSkills.deleted) {
+  const slug = namespacedSlug(name);
   await postJson(`${cloudUrl}/api/skills/admin/deprecate`, { slug });
   console.log(`Deprecated ${slug}`);
 }
 
-for (const slug of changedSkills.active) {
-  const skill = readSkill(rootDir, slug);
-  const payload = buildPublishPayload(skill);
+for (const name of changedSkills.active) {
+  const skill = readSkill(rootDir, name);
+  const payload = buildPublishPayload(name, skill);
 
   await postJson(`${cloudUrl}/api/skills/admin/upsert`, payload);
-  console.log(`Published ${slug} (${payload.sourceTreeSha})`);
+  console.log(`Published ${payload.slug} (${payload.sourceTreeSha})`);
 }
 
 type PublishSkillPayload = NormalizedSkill & {
@@ -41,16 +44,24 @@ type PublishSkillPayload = NormalizedSkill & {
   sourceUpdatedAt: string;
 };
 
-function buildPublishPayload(skill: NormalizedSkill): PublishSkillPayload {
+function buildPublishPayload(
+  name: string,
+  skill: NormalizedSkill,
+): PublishSkillPayload {
   return {
     ...skill,
+    slug: namespacedSlug(name),
     sourceType: "native",
     sourceRepoUrl: getSourceRepoUrl(),
-    sourcePath: `skills/${skill.slug}`,
+    sourcePath: `skills/${name}`,
     sourceBranch: getSourceBranch(),
-    sourceTreeSha: getSkillTreeSha(skill.slug),
-    sourceUpdatedAt: getSkillCommitDate(skill.slug),
+    sourceTreeSha: getSkillTreeSha(name),
+    sourceUpdatedAt: getSkillCommitDate(name),
   };
+}
+
+function namespacedSlug(name: string): string {
+  return `${SLUG_NAMESPACE}/${name}`;
 }
 
 function getChangedSkills(rootDir: string): {
@@ -87,8 +98,8 @@ function getChangedSkills(rootDir: string): {
 }
 
 function getSlugFromPath(filePath: string | undefined): string | null {
-  const [, slug] = filePath?.split("/") ?? [];
-  return `surfmind/${slug}` || null;
+  const [, name] = filePath?.split("/") ?? [];
+  return name || null;
 }
 
 async function postJson(
