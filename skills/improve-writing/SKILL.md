@@ -2,7 +2,7 @@
 name: Improve Writing
 description: Improves clarity, flow, tone, and polish while preserving intent.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: WandSparkles
 ---
 

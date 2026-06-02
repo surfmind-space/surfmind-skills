@@ -2,7 +2,7 @@
 name: Rewrite Shorter
 description: Rewrites text to be shorter and more concise while preserving meaning.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: ListMinus
 ---
 

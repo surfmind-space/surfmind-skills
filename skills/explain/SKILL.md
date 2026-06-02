@@ -2,7 +2,7 @@
 name: Explain
 description: Explains selected or visible content in clear, approachable language.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: BookMarked
 ---
 

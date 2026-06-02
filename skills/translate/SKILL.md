@@ -2,7 +2,7 @@
 name: Translate
 description: Translates selected or provided text into the chosen language.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: Languages
   actionMenu: languages
 ---

@@ -2,7 +2,7 @@
 name: Summarize
 description: Creates a concise summary of selected or visible content.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: ScrollText
 ---
 

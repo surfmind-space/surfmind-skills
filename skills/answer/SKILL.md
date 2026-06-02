@@ -2,7 +2,7 @@
 name: Answer
 description: Answers questions using the selected or visible content as context.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: MessageCircleQuestion
 ---
 
