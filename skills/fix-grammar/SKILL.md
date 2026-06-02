@@ -2,7 +2,7 @@
 name: Fix Grammar
 description: Corrects grammar, spelling, punctuation, and wording while preserving meaning.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: CheckCheck
 ---
 

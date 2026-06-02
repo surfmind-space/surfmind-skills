@@ -2,7 +2,7 @@
 name: Rewrite Longer
 description: Expands text with more detail, clarity, and flow while preserving meaning.
 metadata:
-  author: SurfMind
+  author: surfmind
   icon: ListPlus
 ---
 
