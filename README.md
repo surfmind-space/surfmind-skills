@@ -40,7 +40,7 @@ Optional fields:
 - `metadata.icon`
 - `metadata.actionMenu`
 
-Icons must be one of the values in [`scripts/constants.ts`](scripts/constants.ts). The extension falls back to `Sparkles` when none is supplied.
+Icons must be one of the values in [`scripts/constants.ts`](scripts/constants.ts). The extension falls back to `Box` when none is supplied.
 
 ## Action Menus
 
