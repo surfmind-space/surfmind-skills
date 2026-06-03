@@ -1,6 +1,7 @@
 export const KNOWN_ACTION_MENU_PRESETS = ["languages"] as const;
 
 export const KNOWN_PROMPT_ICONS = [
+  "Box",
   "Sparkles",
   "Pencil",
   "PencilLine",
