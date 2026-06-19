@@ -2,7 +2,11 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
-import { KNOWN_ACTION_MENU_PRESETS, KNOWN_PROMPT_ICONS } from "./constants.js";
+import {
+  KNOWN_ACTION_MENU_PRESETS,
+  KNOWN_PROMPT_ICONS,
+  KNOWN_SKILL_TAGS,
+} from "./constants.js";
 
 export type ActionMenu =
   | { type: "preset"; name: string }
@@ -17,6 +21,7 @@ export type NormalizedSkill = {
   slug: string;
   name: string;
   description: string;
+  tags: string[];
   author: string | null;
   icon: string | null;
   actionMenu: ActionMenu | null;
@@ -37,6 +42,7 @@ const frontmatterSchema = z
       .object({
         author: z.string().trim().min(1).optional().nullable(),
         icon: z.string().trim().min(1).optional().nullable(),
+        tags: z.array(z.string()).optional().nullable(),
         actionMenu: z.unknown().optional(),
       })
       .passthrough()
@@ -111,6 +117,7 @@ function normalizeFrontmatter(
 
   const author = nullableString(metadata.author);
   const icon = nullableString(metadata.icon);
+  const tags = normalizeTags(metadata.tags);
   const actionMenu = normalizeActionMenu(metadata.actionMenu, slug);
 
   if (icon && !KNOWN_PROMPT_ICONS.includes(icon as never)) {
@@ -122,6 +129,7 @@ function normalizeFrontmatter(
   return {
     name: frontmatter.name.trim(),
     description: frontmatter.description.trim(),
+    tags,
     author,
     icon,
     actionMenu,
@@ -223,6 +231,28 @@ function nullableString(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : null;
+}
+
+function normalizeTags(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+
+  const tags: string[] = [];
+  const seen = new Set<string>();
+
+  for (const item of value) {
+    if (typeof item !== "string") continue;
+    const tag = item.trim().toLowerCase();
+    if (!tag || seen.has(tag)) continue;
+    if (!KNOWN_SKILL_TAGS.includes(tag as never)) {
+      throw new Error(
+        `Unknown tag "${tag}". Expected one of: ${KNOWN_SKILL_TAGS.join(", ")}`,
+      );
+    }
+    seen.add(tag);
+    tags.push(tag);
+  }
+
+  return tags;
 }
 
 function toPosixPath(path: string): string {

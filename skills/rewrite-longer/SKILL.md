@@ -4,6 +4,8 @@ description: Expands text with more detail, clarity, and flow while preserving m
 metadata:
   author: surfmind
   icon: ListPlus
+  tags:
+    - writing
 ---
 
 # Rewrite Longer

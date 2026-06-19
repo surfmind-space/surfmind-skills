@@ -4,6 +4,8 @@ description: Translates selected or provided text into the chosen language.
 metadata:
   author: surfmind
   icon: Languages
+  tags:
+    - language
   actionMenu: languages
 ---
 
