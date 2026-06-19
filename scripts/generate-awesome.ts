@@ -1,0 +1,1 @@
+import "./generate-catalog.js";

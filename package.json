@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:awesome": "npm run generate:catalog",
+    "generate:catalog": "tsx scripts/generate-catalog.ts",
     "lint": "tsx scripts/validate.ts",
+    "test": "tsx --test scripts/**/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
