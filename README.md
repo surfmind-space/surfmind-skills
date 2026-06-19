@@ -1,129 +1,113 @@
-# SurfMind Skills
+<p align="center">
+  <img src="./assets/banner.png" alt="Awesome SurfMind cover" width="100%" />
+</p>
 
-Native skills for SurfMind. Each folder under `skills/` is one skill, with `SKILL.md` as the source of truth for catalog metadata and the prompt body.
+<h1 align="center">Awesome SurfMind</h1>
 
-## Folder Layout
+<p align="center">
+  A curated catalog of skills, MCPs, and community resources for SurfMind, the AI assistant that works where you browse.
+</p>
 
-```text
-skills/
-  explain/
-    SKILL.md
-    references/
-      optional-context.md
-```
+<p align="center">
+  <a href="https://github.com/sindresorhus/awesome"><img alt="Awesome" src="https://awesome.re/badge.svg" /></a>
+  <a href="./CONTRIBUTING.md"><img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-2f7f7b?style=flat-square" /></a>
+  <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-4b9aa0?style=flat-square" /></a>
+</p>
 
-## SKILL.md Format
+<p align="center">
+  <a href="https://surfmind.ai">Official Site</a>
+  ·
+  <a href="#-official-surfmind-skills">SurfMind Skills</a>
+  ·
+  <a href="./awesome-skills.md">Community Skills</a>
+  ·
+  <a href="#-contributing">Contribute</a>
+</p>
 
-`SKILL.md` uses YAML frontmatter followed by the prompt body:
+## 💡 What Is This?
 
-```md
----
-name: Explain
-description: Explain selected content clearly and simply.
-license: MIT
-metadata:
-  author: SurfMind
-  icon: BookMarked
----
+Awesome SurfMind is the public catalog for SurfMind resources. This repo makes useful SurfMind resources easy to discover, review, version, and share. Official resources can live here directly, while community resources can be promoted from their own repos through awesome lists.
 
-Explain the selected content in clear, simple language.
-```
+- `skills/` contains official SurfMind-maintained skills.
+- `awesome-skills.md` lists community skills hosted in external GitHub repos.
+- `awesome-mcps.md` lists community MCP servers and integrations (coming soon).
+- `CONTRIBUTING.md` explains how to add official skills or list your own.
 
-Required fields:
+## 👋 Join The Community
 
-- `name`
-- `description`
+Awesome SurfMind is a shared catalog for useful browser AI workflows. Whether
+you use SurfMind every day, maintain your own skill or MCP repo, or just have an
+idea that deserves to be reusable, you are welcome here.
 
-Optional fields:
+| Start here              | What to do                                                                                                                  |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| ⭐ Star this repo       | Get release notifications and help more people discover the catalog.                                                        |
+| 🧩 Try official skills  | Browse the official skills below and use them in SurfMind.                                                                  |
+| 🌊 Share your own skill | Add your GitHub-hosted skill to [`awesome-skills.md`](./awesome-skills.md).                                                 |
+| 🔌 Suggest an MCP       | Open an [issue](https://github.com/surfmind-space/surfmind-skills/issues) for an MCP listing or integration idea.           |
+| 💬 Suggest an idea      | Open an [issue](https://github.com/surfmind-space/surfmind-skills/issues) for a skill request, bug, or catalog improvement. |
 
-- `metadata.author`
-- `metadata.icon`
-- `metadata.tags`
-- `metadata.actionMenu`
+<p>
+  <a href="https://github.com/surfmind-space/surfmind-skills/stargazers">
+    <img alt="Star SurfMind Skills" src="https://img.shields.io/github/stars/surfmind-space/surfmind-skills?style=for-the-badge&label=Star%20the%20repo&color=f0b85a" />
+  </a>
+  <a href="https://github.com/surfmind-space/surfmind-skills/issues/new">
+    <img alt="Suggest a skill" src="https://img.shields.io/badge/suggest-a%20skill-4b9aa0?style=for-the-badge" />
+  </a>
+  <a href="./CONTRIBUTING.md">
+    <img alt="Read contribution guide" src="https://img.shields.io/badge/read-contribution%20guide-2f7f7b?style=for-the-badge" />
+  </a>
+</p>
 
-Icons must be one of the values in [`scripts/constants.ts`](scripts/constants.ts). The extension falls back to `Box` when none is supplied.
+## 🧩 Official SurfMind Skills
 
-## Tags
+<!-- surfmind:official-skills:start -->
 
-Use `metadata.tags` to categorize skills. Tags are stored as canonical lowercase
-keys and rendered as categories in SurfMind clients.
+| Skill                                                | Categories                              | Description                                                                    |
+| ---------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------ |
+| [Answer](./skills/answer/SKILL.md)                   | Reading & Research, Learning & Tutoring | Answers questions using the selected or visible content as context.            |
+| [Explain](./skills/explain/SKILL.md)                 | Reading & Research, Learning & Tutoring | Explains selected or visible content in clear, approachable language.          |
+| [Fix Grammar](./skills/fix-grammar/SKILL.md)         | Writing                                 | Corrects grammar, spelling, punctuation, and wording while preserving meaning. |
+| [Improve Writing](./skills/improve-writing/SKILL.md) | Writing                                 | Improves clarity, flow, tone, and polish while preserving intent.              |
+| [Rewrite Longer](./skills/rewrite-longer/SKILL.md)   | Writing                                 | Expands text with more detail, clarity, and flow while preserving meaning.     |
+| [Rewrite Shorter](./skills/rewrite-shorter/SKILL.md) | Writing                                 | Rewrites text to be shorter and more concise while preserving meaning.         |
+| [Summarize](./skills/summarize/SKILL.md)             | Reading & Research                      | Creates a concise summary of selected or visible content.                      |
+| [Translate](./skills/translate/SKILL.md)             | Languages & Translation                 | Translates selected or provided text into the chosen language.                 |
 
-```yaml
-metadata:
-  tags:
-    - research
-    - learning
-```
+<!-- surfmind:official-skills:end -->
 
-Allowed tags:
+## 🌊 Community Skills
 
-| Tag             | Category                      | Description                                                         |
-| --------------- | ----------------------------- | ------------------------------------------------------------------- |
-| `research`      | Reading & Research            | Find, read, and summarize information from pages or the web         |
-| `writing`       | Writing                       | Draft, edit, rewrite, and improve written text                      |
-| `communication` | Communication                 | Compose clear messages for chat, email, and everyday correspondence |
-| `shopping`      | Shopping & Commerce           | Compare products, prices, and purchase options                      |
-| `code`          | Coding & Development          | Write, explain, debug, or refactor code                             |
-| `learning`      | Learning & Tutoring           | Explain concepts, teach, and support study or practice              |
-| `producivity`   | Productivity                  | Organize tasks, notes, schedules, and daily workflow                |
-| `language`      | Languages & Translation       | Translate text and adapt tone for other languages                   |
-| `content`       | Social & Content              | Create posts, captions, and social media copy                       |
-| `marketing`     | Marketing & Sales             | Draft outreach, ads, and sales messaging                            |
-| `data`          | Data & Analytics              | Analyze, summarize, and work with data and metrics                  |
-| `automation`    | Browser & Workflow Automation | Automate browser actions and multi-step workflows                   |
+Community skills are maintained by their own authors and listed in
+[`awesome-skills.md`](./awesome-skills.md). The list is scan-friendly on GitHub
+and machine-validated in CI, so merged entries can be imported into the SurfMind
+catalog.
 
-## Action Menus
+Want to promote your own SurfMind-compatible skill? Host it in a public GitHub
+repo, add a collapsed entry to `awesome-skills.md`, choose the most suitable
+tags, and open a PR.
 
-Preset (validated against [`KNOWN_ACTION_MENU_PRESETS`](scripts/constants.ts)):
+## 🤝 Contributing
 
-```yaml
-metadata:
-  actionMenu: languages
-```
+Contributions of all kinds are welcome: new official skills, better prompts,
+category fixes, docs polish, bug reports, community skill listings, and soon MCP
+listings.
 
-Inline list of `{label, value}` items:
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the skill file format, available
+metadata fields, community listing format, and local validation commands.
 
-```yaml
-metadata:
-  actionMenu:
-    - label: Formal
-      value: formal
-    - label: Casual
-      value: casual
-```
+<p>
+  <a href="./CONTRIBUTING.md#official-skill-file-structure">
+    <img alt="Submit official skill" src="https://img.shields.io/badge/submit-official%20skill-4b9aa0?style=for-the-badge" />
+  </a>
+  <a href="./CONTRIBUTING.md#community-skills">
+    <img alt="List community skill" src="https://img.shields.io/badge/submit-community%20skill-2f7f7b?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/surfmind-space/surfmind-skills/issues/new">
+    <img alt="Suggest a skill" src="https://img.shields.io/badge/suggest-a%20skill-8bbfc6?style=for-the-badge" />
+  </a>
+</p>
 
-`{value}` is a placeholder in the prompt body. When the skill runs, it is replaced with the value from the selected action menu item.
+## 📄 License
 
-## Local Checks
-
-```bash
-npm install
-npm run lint        # validate every SKILL.md
-npm run typecheck   # typecheck the scripts
-```
-
-## Contributing
-
-Everyone is welcome to contribute skills through pull requests. You can:
-
-- update an existing skill's prompt, metadata, or reference files
-- add a new skill folder under `skills/`
-
-For new skills, create a kebab-case folder name and add a `SKILL.md` file using
-the format above. Keep prompts focused, practical, and reusable. If a skill
-needs supporting material, place it in that skill's folder and reference it from
-the prompt.
-
-Before opening a PR, run:
-
-```bash
-npm run lint
-npm run typecheck
-```
-
-Pull requests run the same validation in CI. After a PR is merged to `main`, the
-publish workflow updates the SurfMind skills catalog automatically.
-
-## License
-
-This repository is licensed under the MIT License.
+This repository is licensed under the [MIT License](./LICENSE).

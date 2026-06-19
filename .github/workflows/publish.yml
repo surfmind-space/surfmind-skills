@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - "awesome-skills.md"
       - "skills/**"
       - "scripts/**"
       - "package.json"

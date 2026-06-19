@@ -1,12 +1,15 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
+import { readAwesomeSkills } from "./community-skills.js";
 import {
+  getDiffRange,
   getChangedSkillDiff,
   getSkillCommitDate,
   getSkillCommitSha,
   getSkillTreeSha,
   getSourceBranch,
   getSourceRepoUrl,
+  git,
 } from "./git.js";
 import { readSkill, type NormalizedSkill } from "./skills.js";
 
@@ -19,8 +22,13 @@ const repoUrl = getSourceRepoUrl();
 const sourceBranch = getSourceBranch();
 const githubStars = await fetchGitHubStars(repoUrl);
 const changedSkills = getChangedSkills(rootDir);
+const awesomeSkillsChanged = hasChangedFile("awesome-skills.md");
 
-if (changedSkills.active.length === 0 && changedSkills.deleted.length === 0) {
+if (
+  changedSkills.active.length === 0 &&
+  changedSkills.deleted.length === 0 &&
+  !awesomeSkillsChanged
+) {
   console.log("No changed skills found.");
   process.exit(0);
 }
@@ -37,6 +45,31 @@ for (const name of changedSkills.active) {
 
   await postJson(`${apiUrl}/skills/admin/upsert`, payload);
   console.log(`Published ${payload.slug} (${payload.sourceTreeSha})`);
+}
+
+if (awesomeSkillsChanged) {
+  const communitySkills = readAwesomeSkills(
+    path.join(rootDir, "awesome-skills.md"),
+  );
+  if (communitySkills.length === 0) {
+    console.log("No community skills found in awesome-skills.md.");
+  } else {
+    const result = await postJson(`${apiUrl}/skills/admin/import`, {
+      skills: communitySkills.map((skill) => ({
+        url: skill.url,
+        tags: skill.tags,
+        communityProfile: {
+          submittedBy: skill.submittedBy,
+          promotion: skill.promotion,
+        },
+      })),
+    });
+    console.log(
+      `Imported community skills from awesome-skills.md: ${JSON.stringify(
+        result,
+      )}`,
+    );
+  }
 }
 
 type PublishSkillPayload = NormalizedSkill & {
@@ -146,8 +179,24 @@ async function fetchGitHubStars(url: string): Promise<number | null> {
 
 async function postJson(
   url: string,
-  payload: { slug: string } | PublishSkillPayload,
-): Promise<void> {
+  payload:
+    | { slug: string }
+    | PublishSkillPayload
+    | {
+        skills: Array<{
+          url: string;
+          tags?: string[];
+          communityProfile: {
+            submittedBy: string;
+            promotion?: {
+              text?: string;
+              website?: string;
+              links: Array<{ label: string; url: string }>;
+            };
+          };
+        }>;
+      },
+): Promise<unknown> {
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -161,6 +210,8 @@ async function postJson(
     const body = await response.text();
     throw new Error(`POST ${url} failed with ${response.status}: ${body}`);
   }
+
+  return response.json();
 }
 
 function requiredEnv(name: string): string {
@@ -171,4 +222,16 @@ function requiredEnv(name: string): string {
   }
 
   return value;
+}
+
+function hasChangedFile(filePath: string): boolean {
+  const output = git([
+    "diff",
+    "--name-only",
+    getDiffRange({ publish: true }),
+    "--",
+    filePath,
+  ]);
+
+  return output.split("\n").includes(filePath);
 }
