@@ -4,6 +4,8 @@ description: Improves clarity, flow, tone, and polish while preserving intent.
 metadata:
   author: surfmind
   icon: WandSparkles
+  tags:
+    - writing
 ---
 
 # Improve Writing

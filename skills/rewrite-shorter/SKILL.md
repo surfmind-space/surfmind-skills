@@ -4,6 +4,8 @@ description: Rewrites text to be shorter and more concise while preserving meani
 metadata:
   author: surfmind
   icon: ListMinus
+  tags:
+    - writing
 ---
 
 # Rewrite Shorter

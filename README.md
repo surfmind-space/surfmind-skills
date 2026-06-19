@@ -38,9 +38,39 @@ Optional fields:
 
 - `metadata.author`
 - `metadata.icon`
+- `metadata.tags`
 - `metadata.actionMenu`
 
 Icons must be one of the values in [`scripts/constants.ts`](scripts/constants.ts). The extension falls back to `Box` when none is supplied.
+
+## Tags
+
+Use `metadata.tags` to categorize skills. Tags are stored as canonical lowercase
+keys and rendered as categories in SurfMind clients.
+
+```yaml
+metadata:
+  tags:
+    - research
+    - learning
+```
+
+Allowed tags:
+
+| Tag             | Category                      | Description                                                         |
+| --------------- | ----------------------------- | ------------------------------------------------------------------- |
+| `research`      | Reading & Research            | Find, read, and summarize information from pages or the web         |
+| `writing`       | Writing                       | Draft, edit, rewrite, and improve written text                      |
+| `communication` | Communication                 | Compose clear messages for chat, email, and everyday correspondence |
+| `shopping`      | Shopping & Commerce           | Compare products, prices, and purchase options                      |
+| `code`          | Coding & Development          | Write, explain, debug, or refactor code                             |
+| `learning`      | Learning & Tutoring           | Explain concepts, teach, and support study or practice              |
+| `producivity`   | Productivity                  | Organize tasks, notes, schedules, and daily workflow                |
+| `language`      | Languages & Translation       | Translate text and adapt tone for other languages                   |
+| `content`       | Social & Content              | Create posts, captions, and social media copy                       |
+| `marketing`     | Marketing & Sales             | Draft outreach, ads, and sales messaging                            |
+| `data`          | Data & Analytics              | Analyze, summarize, and work with data and metrics                  |
+| `automation`    | Browser & Workflow Automation | Automate browser actions and multi-step workflows                   |
 
 ## Action Menus
 

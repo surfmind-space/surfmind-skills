@@ -4,6 +4,8 @@ description: Creates a concise summary of selected or visible content.
 metadata:
   author: surfmind
   icon: ScrollText
+  tags:
+    - research
 ---
 
 # Summarize

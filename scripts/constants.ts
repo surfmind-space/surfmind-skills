@@ -1,5 +1,24 @@
 export const KNOWN_ACTION_MENU_PRESETS = ["languages"] as const;
 
+export const SKILL_TAG_CATEGORIES = {
+  research: "Reading & Research",
+  writing: "Writing",
+  communication: "Communication",
+  shopping: "Shopping & Commerce",
+  code: "Coding & Development",
+  learning: "Learning & Tutoring",
+  language: "Languages & Translation",
+  content: "Social & Content",
+  data: "Data & Analytics",
+  automation: "Browser & Workflow Automation",
+  marketing: "Marketing & Sales",
+  productivity: "Productivity",
+} as const;
+
+export const KNOWN_SKILL_TAGS = Object.keys(SKILL_TAG_CATEGORIES) as Array<
+  keyof typeof SKILL_TAG_CATEGORIES
+>;
+
 export const KNOWN_PROMPT_ICONS = [
   "Box",
   "Sparkles",
