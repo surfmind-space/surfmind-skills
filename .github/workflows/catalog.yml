@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update-generated:
@@ -40,19 +41,6 @@ jobs:
       - name: Generate catalog tables
         run: npm run generate:catalog
 
-      - name: Commit generated tables
-        run: |
-          if git diff --quiet -- README.md awesome-skills.md; then
-            echo "Generated catalog tables are already up to date."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md awesome-skills.md
-          git commit -m "chore: update generated catalog"
-          git push
-
       - name: Validate catalog
         run: npm run lint
 
@@ -61,3 +49,21 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
+
+      - name: Create generated catalog pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.SURFMIND_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          branch: chore/generated-catalog
+          delete-branch: true
+          title: "chore: update generated catalog"
+          commit-message: "chore: update generated catalog"
+          body: |
+            This PR was created automatically after changes landed on `main`.
+
+            It refreshes the generated catalog tables in `README.md` and
+            `awesome-skills.md` without pushing directly to the protected
+            `main` branch.
+          add-paths: |
+            README.md
+            awesome-skills.md
