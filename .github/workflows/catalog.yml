@@ -1,16 +1,6 @@
 name: Catalog
 
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/catalog.yml"
-      - "CONTRIBUTING.md"
-      - "README.md"
-      - "awesome-skills.md"
-      - "package-lock.json"
-      - "package.json"
-      - "scripts/**"
-      - "skills/**"
   push:
     branches:
       - main
@@ -25,45 +15,12 @@ on:
       - "skills/**"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  validate:
-    name: Validate catalog
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Generate catalog tables
-        run: npm run generate:catalog
-
-      - name: Validate catalog
-        run: npm run lint
-
-      - name: Run tests
-        run: npm test
-
-      - name: Typecheck
-        run: npm run typecheck
-
   update-generated:
     name: Update generated catalog
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Check out repository

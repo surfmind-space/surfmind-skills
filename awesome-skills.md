@@ -5,10 +5,8 @@ Community-maintained SurfMind-compatible skills.
 ## Skills
 
 <!-- surfmind:awesome-table:start -->
-
-| Skill | Submitted By | Tags | Description | Links |
-| ----- | ------------ | ---- | ----------- | ----- |
-
+| Skill | Submitted By | Tags | Short Description | Links |
+| --- | --- | --- | --- | --- |
 <!-- surfmind:awesome-table:end -->
 
 ## Entries
