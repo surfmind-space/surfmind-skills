@@ -1,19 +1,17 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="SurfMind Skills cover" width="100%" />
+  <img src="./assets/banner.png" alt="Awesome SurfMind cover" width="100%" />
 </p>
 
-<h1 align="center">SurfMind Skills</h1>
+<h1 align="center">Awesome SurfMind</h1>
 
 <p align="center">
-  Official and community skills for SurfMind, the AI assistant that works where
-  you browse.
+  A curated catalog of skills, MCPs, and community resources for SurfMind, the AI assistant that works where you browse.
 </p>
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img alt="Awesome" src="https://awesome.re/badge.svg" /></a>
   <a href="./CONTRIBUTING.md"><img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-2f7f7b?style=flat-square" /></a>
   <a href="./LICENSE"><img alt="License MIT" src="https://img.shields.io/badge/license-MIT-4b9aa0?style=flat-square" /></a>
-  <a href="./awesome-skills.md"><img alt="Community skills" src="https://img.shields.io/badge/community-skills-f0b85a?style=flat-square" /></a>
 </p>
 
 <p align="center">
@@ -28,34 +26,25 @@
 
 ## 💡 What Is This?
 
-SurfMind skills are reusable instructions that turn common browser workflows
-into one-click AI actions. They can summarize a page, improve selected writing,
-translate text, answer questions from page context, and more.
-
-This repository is the public catalog source for SurfMind:
+Awesome SurfMind is the public catalog for SurfMind resources. This repo makes useful SurfMind resources easy to discover, review, version, and share. Official resources can live here directly, while community resources can be promoted from their own repos through awesome lists.
 
 - `skills/` contains official SurfMind-maintained skills.
 - `awesome-skills.md` lists community skills hosted in external GitHub repos.
+- `awesome-mcps.md` lists community MCP servers and integrations (coming soon).
 - `CONTRIBUTING.md` explains how to add official skills or list your own.
-
-## ✨ Why It Exists
-
-Most AI prompts live in private notes, browser snippets, or one-off chats. This
-repo makes useful skills easy to discover, review, version, and share. Official
-skills are maintained here directly, while community skills can be promoted from
-their own repos through the awesome list.
 
 ## 👋 Join The Community
 
-SurfMind Skills is a shared catalog for useful browser AI workflows. Whether you
-use SurfMind every day, maintain your own skill repo, or just have a prompt that
-deserves to be reusable, you are welcome here.
+Awesome SurfMind is a shared catalog for useful browser AI workflows. Whether
+you use SurfMind every day, maintain your own skill or MCP repo, or just have an
+idea that deserves to be reusable, you are welcome here.
 
 | Start here              | What to do                                                                                                                  |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | ⭐ Star this repo       | Get release notifications and help more people discover the catalog.                                                        |
 | 🧩 Try official skills  | Browse the official skills below and use them in SurfMind.                                                                  |
 | 🌊 Share your own skill | Add your GitHub-hosted skill to [`awesome-skills.md`](./awesome-skills.md).                                                 |
+| 🔌 Suggest an MCP       | Open an [issue](https://github.com/surfmind-space/surfmind-skills/issues) for an MCP listing or integration idea.           |
 | 💬 Suggest an idea      | Open an [issue](https://github.com/surfmind-space/surfmind-skills/issues) for a skill request, bug, or catalog improvement. |
 
 <p align="center">
@@ -101,7 +90,8 @@ tables, and open a PR.
 ## 🤝 Contributing
 
 Contributions of all kinds are welcome: new official skills, better prompts,
-category fixes, docs polish, bug reports, and community skill listings.
+category fixes, docs polish, bug reports, community skill listings, and soon MCP
+listings.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the skill file format, available
 metadata fields, community listing format, and local validation commands.
