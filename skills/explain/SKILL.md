@@ -4,6 +4,9 @@ description: Explains selected or visible content in clear, approachable languag
 metadata:
   author: surfmind
   icon: BookMarked
+  tags:
+    - research
+    - learning
 ---
 
 # Explain

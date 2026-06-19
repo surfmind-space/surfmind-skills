@@ -4,6 +4,8 @@ description: Corrects grammar, spelling, punctuation, and wording while preservi
 metadata:
   author: surfmind
   icon: CheckCheck
+  tags:
+    - writing
 ---
 
 # Fix Grammar

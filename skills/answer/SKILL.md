@@ -4,6 +4,9 @@ description: Answers questions using the selected or visible content as context.
 metadata:
   author: surfmind
   icon: MessageCircleQuestion
+  tags:
+    - research
+    - learning
 ---
 
 # Answer
