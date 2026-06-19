@@ -4,7 +4,7 @@ Thanks for helping grow the SurfMind skill catalog. You can contribute in two
 ways:
 
 - Add or improve an official SurfMind skill in `skills/`
-- List an external/community skill in `awesome-skills.md`
+- List an external/community skill in [`awesome-skills.md`](./awesome-skills.md)
 
 ## Official Skill File Structure
 
@@ -21,6 +21,12 @@ skills/
 `SKILL.md` is the source of truth for catalog metadata and the prompt body. If a
 skill needs supporting files, place them in the same skill folder and reference
 them from the prompt.
+
+To add or update an official skill:
+
+1. Add or edit the skill folder under `skills/`.
+2. Choose suitable metadata fields, including tags when relevant.
+3. Open a pull request.
 
 ## SKILL.md Format
 
@@ -116,15 +122,14 @@ replaced with the selected action menu value.
 ## Community Skills
 
 Community skills are SurfMind-compatible skills hosted in external public GitHub
-repos. They are listed in `awesome-skills.md`, and the SurfMind publish pipeline
+repos. They are listed in [`awesome-skills.md`](./awesome-skills.md), and the SurfMind publish pipeline
 imports them into the public catalog after the PR is merged.
 
 To list a community skill:
 
 1. Publish a valid `SKILL.md` in a public GitHub repo.
-2. Add one collapsed entry under `## Entries` in `awesome-skills.md`.
-3. Run `npm run generate:catalog` to update generated tables.
-4. Run the local checks before opening a PR.
+2. Add one collapsed entry under `## Entries` in [`awesome-skills.md`](./awesome-skills.md).
+3. Open a pull request.
 
 Community entry format:
 
@@ -188,7 +193,7 @@ skill summary. `shortDescription` is only for the generated GitHub table in
 with the community import payload so the catalog can categorize the listing
 after the PR is merged.
 
-## Local Checks
+## Optional Local Checks
 
 ```bash
 npm install
@@ -198,5 +203,6 @@ npm run test
 npm run typecheck
 ```
 
-Pull requests run validation in CI. After a PR is merged to `main`, the publish
-workflow updates the SurfMind skills catalog automatically.
+These same checks run in CI on every pull request: `npm run generate:catalog`
+runs first, then validation. After a merge to `main`, automation refreshes the
+generated tables and publishes the updated SurfMind skills catalog.

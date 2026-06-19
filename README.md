@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img alt="Awesome" src="https://awesome.re/badge.svg" /></a>
   <a href="./CONTRIBUTING.md"><img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-2f7f7b?style=flat-square" /></a>
-  <a href="./LICENSE"><img alt="License MIT" src="https://img.shields.io/badge/license-MIT-4b9aa0?style=flat-square" /></a>
+  <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-4b9aa0?style=flat-square" /></a>
 </p>
 
 <p align="center">
@@ -84,8 +84,8 @@ and machine-validated in CI, so merged entries can be imported into the SurfMind
 catalog.
 
 Want to promote your own SurfMind-compatible skill? Host it in a public GitHub
-repo, add a collapsed entry to `awesome-skills.md`, regenerate the catalog
-tables, choose the most suitable tags, and open a PR.
+repo, add a collapsed entry to `awesome-skills.md`, choose the most suitable
+tags, and open a PR.
 
 ## 🤝 Contributing
 
