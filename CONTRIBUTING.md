@@ -135,6 +135,9 @@ Community entry format:
 <!-- surfmind:community-skill
 skillUrl: https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant
 submittedBy: "@acme"
+tags:
+  - research
+  - learning
 promotion:
   tagline: Research assistant for technical blogs, docs, and papers.
   website: https://acme.example
@@ -150,6 +153,7 @@ Required community fields:
 
 - `skillUrl`: a public GitHub folder URL that points to the skill folder
 - `submittedBy`: your GitHub handle, organization, or author name
+- `tags`: canonical SurfMind tags for the skill, or `[]` when no tag is relevant
 - `promotion.tagline`: short text shown in the awesome list and SurfMind catalog
 
 `skillUrl` must use this shape:
@@ -167,8 +171,17 @@ Optional community fields:
 - `promotion.website`
 - `promotion.links`
 
-The skill's name, description, tags, icon, action menu, prompt, and files come
-from the external `SKILL.md`.
+Choose the most suitable tags from the allowed tags table above. Leave the list
+empty only when no existing tag fits:
+
+```yaml
+tags: []
+```
+
+The skill's name, description, icon, action menu, prompt, and files come from
+the external `SKILL.md`. The `awesome-skills.md` tags are validated in CI and
+sent with the community import payload so the catalog can categorize the listing
+after the PR is merged.
 
 ## Local Checks
 

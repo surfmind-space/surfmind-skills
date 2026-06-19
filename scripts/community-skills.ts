@@ -1,11 +1,13 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
+import { KNOWN_SKILL_TAGS, SKILL_TAG_CATEGORIES } from "./constants.js";
 
 export type CommunitySkill = {
   title: string;
   skillUrl: string;
   submittedBy: string;
+  tags: string[];
   promotion: {
     tagline: string;
     website?: string;
@@ -26,6 +28,7 @@ const promotionLinkSchema = z.object({
 const communitySkillSchema = z.object({
   skillUrl: z.string().trim().url(),
   submittedBy: z.string().trim().min(1),
+  tags: z.array(z.string()).nullish().transform(normalizeTags),
   promotion: z
     .object({
       tagline: z.string().trim().min(1),
@@ -97,6 +100,7 @@ export function parseCommunitySkills(
       title: readEntryTitle(content, index, filePath),
       skillUrl,
       submittedBy: parsed.submittedBy.trim(),
+      tags: parsed.tags,
       promotion: {
         tagline: parsed.promotion.tagline.trim(),
         ...(parsed.promotion.website
@@ -115,19 +119,29 @@ export function parseCommunitySkills(
 
 function buildSkillsTable(skills: CommunitySkill[]): string {
   const rows = [
-    "| Skill | Submitted By | Tagline | Links |",
-    "| --- | --- | --- | --- |",
+    "| Skill | Submitted By | Tags | Tagline | Links |",
+    "| --- | --- | --- | --- | --- |",
   ];
 
   for (const skill of skills) {
     rows.push(
       `| [${escapeTableCell(skill.title)}](${skill.skillUrl}) | ${escapeTableCell(
         skill.submittedBy,
-      )} | ${escapeTableCell(skill.promotion.tagline)} | ${formatLinks(skill)} |`,
+      )} | ${formatTags(skill.tags)} | ${escapeTableCell(
+        skill.promotion.tagline,
+      )} | ${formatLinks(skill)} |`,
     );
   }
 
   return rows.join("\n");
+}
+
+function formatTags(tags: string[]): string {
+  if (tags.length === 0) return "";
+
+  return tags
+    .map((tag) => SKILL_TAG_CATEGORIES[tag as keyof typeof SKILL_TAG_CATEGORIES])
+    .join(", ");
 }
 
 function formatLinks(skill: CommunitySkill): string {
@@ -183,6 +197,28 @@ function normalizeSkillFolderUrl(url: string, filePath: string): string {
   }
 
   return url;
+}
+
+function normalizeTags(value: string[] | null | undefined): string[] {
+  if (!value) return [];
+
+  const tags: string[] = [];
+  const seen = new Set<string>();
+
+  for (const item of value) {
+    const tag = item.trim().toLowerCase();
+    if (!tag) continue;
+    if (!KNOWN_SKILL_TAGS.includes(tag as never)) {
+      throw new Error(
+        `Unknown tag "${tag}". Expected one of: ${KNOWN_SKILL_TAGS.join(", ")}`,
+      );
+    }
+    if (seen.has(tag)) continue;
+    seen.add(tag);
+    tags.push(tag);
+  }
+
+  return tags;
 }
 
 function escapeTableCell(value: string): string {

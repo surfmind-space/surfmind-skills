@@ -24,6 +24,9 @@ Community-maintained SurfMind-compatible skills.
 <!-- surfmind:community-skill
 skillUrl: https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant
 submittedBy: "@acme"
+tags:
+  - research
+  - learning
 promotion:
   tagline: Research assistant for technical blogs, docs, and papers.
   website: https://acme.example
@@ -44,6 +47,7 @@ test("parses collapsed community skill entries", () => {
       skillUrl:
         "https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant",
       submittedBy: "@acme",
+      tags: ["research", "learning"],
       promotion: {
         tagline: "Research assistant for technical blogs, docs, and papers.",
         website: "https://acme.example",
@@ -58,7 +62,27 @@ test("generates the awesome skills table from collapsed entries", () => {
 
   assert.match(
     generated,
-    /\| \[Acme Research Assistant\]\(https:\/\/github\.com\/acme\/surfmind-skills\/tree\/main\/skills\/research-assistant\) \| @acme \| Research assistant for technical blogs, docs, and papers\. \| \[Website\]\(https:\/\/acme\.example\) · \[Demo\]\(https:\/\/acme\.example\/demo\) \|/,
+    /\| \[Acme Research Assistant\]\(https:\/\/github\.com\/acme\/surfmind-skills\/tree\/main\/skills\/research-assistant\) \| @acme \| Reading & Research, Learning & Tutoring \| Research assistant for technical blogs, docs, and papers\. \| \[Website\]\(https:\/\/acme\.example\) · \[Demo\]\(https:\/\/acme\.example\/demo\) \|/,
+  );
+});
+
+test("allows community skills to explicitly have no tags", () => {
+  const untagged = exampleMarkdown.replace(
+    "tags:\n  - research\n  - learning",
+    "tags: []",
+  );
+
+  const skills = parseCommunitySkills(untagged, "awesome-skills.md");
+
+  assert.deepEqual(skills[0]?.tags, []);
+});
+
+test("rejects unknown community skill tags", () => {
+  const unknownTag = exampleMarkdown.replace("  - learning", "  - nope");
+
+  assert.throws(
+    () => parseCommunitySkills(unknownTag, "awesome-skills.md"),
+    /Unknown tag "nope"/i,
   );
 });
 
