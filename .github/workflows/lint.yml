@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate catalog tables
+        run: npm run generate:catalog
+
       - name: Validate skills
         run: npm run lint
 
