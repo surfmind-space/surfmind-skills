@@ -65,7 +65,10 @@ export function generateAwesomeSkillsMarkdown(content: string): string {
   const skills = parseCommunitySkills(content, "awesome-skills.md");
   const table = buildSkillsTable(skills);
 
-  if (!content.includes(awesomeTableStart) || !content.includes(awesomeTableEnd)) {
+  if (
+    !content.includes(awesomeTableStart) ||
+    !content.includes(awesomeTableEnd)
+  ) {
     throw new Error(
       `awesome-skills.md: missing ${awesomeTableStart} / ${awesomeTableEnd} markers`,
     );
@@ -129,7 +132,7 @@ export function parseCommunitySkills(
 
 function buildSkillsTable(skills: CommunitySkill[]): string {
   const rows = [
-    "| Skill | Submitted By | Tags | Short Description | Links |",
+    "| Skill | Submitted By | Tags | Description | Links |",
     "| --- | --- | --- | --- | --- |",
   ];
 
@@ -150,7 +153,9 @@ function formatTags(tags: string[]): string {
   if (tags.length === 0) return "";
 
   return tags
-    .map((tag) => SKILL_TAG_CATEGORIES[tag as keyof typeof SKILL_TAG_CATEGORIES])
+    .map(
+      (tag) => SKILL_TAG_CATEGORIES[tag as keyof typeof SKILL_TAG_CATEGORIES],
+    )
     .join(", ");
 }
 
@@ -169,10 +174,15 @@ function formatLinks(skill: CommunitySkill): string {
     .join(" · ");
 }
 
-function readEntryTitle(content: string, index: number, filePath: string): string {
+function readEntryTitle(
+  content: string,
+  index: number,
+  filePath: string,
+): string {
   const before = content.slice(0, index);
   const detailsStart = before.lastIndexOf("<details>");
-  const detailsContent = detailsStart >= 0 ? before.slice(detailsStart) : before;
+  const detailsContent =
+    detailsStart >= 0 ? before.slice(detailsStart) : before;
   const summaryMatch =
     /<summary>\s*(?:<strong>)?([^<]+)(?:<\/strong>)?\s*<\/summary>/i.exec(
       detailsContent,

@@ -203,7 +203,10 @@ npm run test
 npm run typecheck
 ```
 
-These same checks run in CI on every pull request: `npm run generate:catalog`
-runs first, then validation. After a merge to `main`, automation refreshes the
-generated tables and opens a follow-up pull request when `README.md` or
-`awesome-skills.md` needs to change.
+CI runs `npm run generate:catalog` before validation on every pull request and
+again whenever new commits are pushed to the PR branch. For PR branches in this
+repository, CI commits generated `README.md` or `awesome-skills.md` updates back
+to the PR automatically.
+
+After a merge to `main`, automation refreshes the
+generated tables and publishes the updated SurfMind skills catalog.

@@ -13,6 +13,9 @@ on:
       - "tsconfig.json"
       - ".github/workflows/lint.yml"
 
+permissions:
+  contents: write
+
 jobs:
   skills:
     runs-on: ubuntu-latest
@@ -20,6 +23,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -32,6 +38,20 @@ jobs:
 
       - name: Generate catalog tables
         run: npm run generate:catalog
+
+      - name: Commit generated catalog tables
+        if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+        run: |
+          if git diff --quiet -- README.md awesome-skills.md; then
+            echo "Generated catalog tables are already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md awesome-skills.md
+          git commit -m "chore: update generated catalog"
+          git push
 
       - name: Validate skills
         run: npm run lint
