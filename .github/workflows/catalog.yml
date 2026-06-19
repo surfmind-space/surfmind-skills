@@ -51,7 +51,7 @@ jobs:
         run: npm run typecheck
 
       - name: Create generated catalog pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.SURFMIND_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           branch: chore/generated-catalog
