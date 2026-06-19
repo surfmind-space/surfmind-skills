@@ -1,128 +1,39 @@
 # SurfMind Skills
 
-Native skills for SurfMind. Each folder under `skills/` is one skill, with `SKILL.md` as the source of truth for catalog metadata and the prompt body.
+SurfMind is an AI assistant for the browser, web, and native apps. This
+repository is the public skill catalog used by SurfMind clients.
 
-## Folder Layout
+## What Is In This Repo
 
-```text
-skills/
-  explain/
-    SKILL.md
-    references/
-      optional-context.md
-```
+- `skills/`: official SurfMind-maintained skills
+- `awesome-skills.md`: community and external SurfMind-compatible skills
+- `CONTRIBUTING.md`: instructions for adding official and community skills
 
-## SKILL.md Format
+## Official SurfMind Skills
 
-`SKILL.md` uses YAML frontmatter followed by the prompt body:
+<!-- surfmind:official-skills:start -->
+| Skill | Categories | Description |
+| --- | --- | --- |
+| [Answer](./skills/answer/SKILL.md) | Reading & Research, Learning & Tutoring | Answers questions using the selected or visible content as context. |
+| [Explain](./skills/explain/SKILL.md) | Reading & Research, Learning & Tutoring | Explains selected or visible content in clear, approachable language. |
+| [Fix Grammar](./skills/fix-grammar/SKILL.md) | Writing | Corrects grammar, spelling, punctuation, and wording while preserving meaning. |
+| [Improve Writing](./skills/improve-writing/SKILL.md) | Writing | Improves clarity, flow, tone, and polish while preserving intent. |
+| [Rewrite Longer](./skills/rewrite-longer/SKILL.md) | Writing | Expands text with more detail, clarity, and flow while preserving meaning. |
+| [Rewrite Shorter](./skills/rewrite-shorter/SKILL.md) | Writing | Rewrites text to be shorter and more concise while preserving meaning. |
+| [Summarize](./skills/summarize/SKILL.md) | Reading & Research | Creates a concise summary of selected or visible content. |
+| [Translate](./skills/translate/SKILL.md) | Languages & Translation | Translates selected or provided text into the chosen language. |
+<!-- surfmind:official-skills:end -->
 
-```md
----
-name: Explain
-description: Explain selected content clearly and simply.
-license: MIT
-metadata:
-  author: SurfMind
-  icon: BookMarked
----
+## Community Skills
 
-Explain the selected content in clear, simple language.
-```
-
-Required fields:
-
-- `name`
-- `description`
-
-Optional fields:
-
-- `metadata.author`
-- `metadata.icon`
-- `metadata.tags`
-- `metadata.actionMenu`
-
-Icons must be one of the values in [`scripts/constants.ts`](scripts/constants.ts). The extension falls back to `Box` when none is supplied.
-
-## Tags
-
-Use `metadata.tags` to categorize skills. Tags are stored as canonical lowercase
-keys and rendered as categories in SurfMind clients.
-
-```yaml
-metadata:
-  tags:
-    - research
-    - learning
-```
-
-Allowed tags:
-
-| Tag             | Category                      | Description                                                         |
-| --------------- | ----------------------------- | ------------------------------------------------------------------- |
-| `research`      | Reading & Research            | Find, read, and summarize information from pages or the web         |
-| `writing`       | Writing                       | Draft, edit, rewrite, and improve written text                      |
-| `communication` | Communication                 | Compose clear messages for chat, email, and everyday correspondence |
-| `shopping`      | Shopping & Commerce           | Compare products, prices, and purchase options                      |
-| `code`          | Coding & Development          | Write, explain, debug, or refactor code                             |
-| `learning`      | Learning & Tutoring           | Explain concepts, teach, and support study or practice              |
-| `producivity`   | Productivity                  | Organize tasks, notes, schedules, and daily workflow                |
-| `language`      | Languages & Translation       | Translate text and adapt tone for other languages                   |
-| `content`       | Social & Content              | Create posts, captions, and social media copy                       |
-| `marketing`     | Marketing & Sales             | Draft outreach, ads, and sales messaging                            |
-| `data`          | Data & Analytics              | Analyze, summarize, and work with data and metrics                  |
-| `automation`    | Browser & Workflow Automation | Automate browser actions and multi-step workflows                   |
-
-## Action Menus
-
-Preset (validated against [`KNOWN_ACTION_MENU_PRESETS`](scripts/constants.ts)):
-
-```yaml
-metadata:
-  actionMenu: languages
-```
-
-Inline list of `{label, value}` items:
-
-```yaml
-metadata:
-  actionMenu:
-    - label: Formal
-      value: formal
-    - label: Casual
-      value: casual
-```
-
-`{value}` is a placeholder in the prompt body. When the skill runs, it is replaced with the value from the selected action menu item.
-
-## Local Checks
-
-```bash
-npm install
-npm run lint        # validate every SKILL.md
-npm run typecheck   # typecheck the scripts
-```
+Community skills are maintained by their own authors and listed in
+[`awesome-skills.md`](./awesome-skills.md). Add your own skill there if you want
+to promote a SurfMind-compatible skill hosted in another public GitHub repo.
 
 ## Contributing
 
-Everyone is welcome to contribute skills through pull requests. You can:
-
-- update an existing skill's prompt, metadata, or reference files
-- add a new skill folder under `skills/`
-
-For new skills, create a kebab-case folder name and add a `SKILL.md` file using
-the format above. Keep prompts focused, practical, and reusable. If a skill
-needs supporting material, place it in that skill's folder and reference it from
-the prompt.
-
-Before opening a PR, run:
-
-```bash
-npm run lint
-npm run typecheck
-```
-
-Pull requests run the same validation in CI. After a PR is merged to `main`, the
-publish workflow updates the SurfMind skills catalog automatically.
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the skill file format, available
+metadata fields, community listing format, and local validation commands.
 
 ## License
 

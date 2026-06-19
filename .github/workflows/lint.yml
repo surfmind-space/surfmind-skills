@@ -3,6 +3,9 @@ name: Lint
 on:
   pull_request:
     paths:
+      - "awesome-skills.md"
+      - "CONTRIBUTING.md"
+      - "README.md"
       - "skills/**"
       - "scripts/**"
       - "package.json"
@@ -29,6 +32,9 @@ jobs:
 
       - name: Validate skills
         run: npm run lint
+
+      - name: Test scripts
+        run: npm test
 
       - name: Typecheck scripts
         run: npm run typecheck
