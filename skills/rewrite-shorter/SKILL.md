@@ -10,6 +10,6 @@ metadata:
 
 # Rewrite Shorter
 
-Rewrite the provided text to be shorter and more concise. Preserve the essential meaning, tone, language, and important details, along with formatting (including markdown, code, and line breaks).
+Rewrite the selected or provided text to be shorter and more concise. Preserve the essential meaning, tone, language, important details, markdown, links, code, names, numbers, and line-break intent.
 
 Respond with only the rewritten text. Do not add preamble, explanations, or commentary.
