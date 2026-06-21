@@ -10,6 +10,6 @@ metadata:
 
 # Improve Writing
 
-Improve the provided text. Make it clearer, smoother, and more polished while preserving the original meaning, intent, tone, language, and formatting (including markdown, code, and line breaks).
+Improve the selected or provided text. Make it clearer, smoother, and more polished while preserving the original meaning, intent, tone, language, markdown, links, code, names, numbers, and line-break intent.
 
 Respond with only the improved text. Do not add preamble, explanations, or commentary.
