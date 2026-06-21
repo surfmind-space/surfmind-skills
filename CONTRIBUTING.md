@@ -73,20 +73,21 @@ metadata:
 
 Allowed tags:
 
-| Tag             | Category                      | Description                                                         |
-| --------------- | ----------------------------- | ------------------------------------------------------------------- |
-| `research`      | Reading & Research            | Find, read, and summarize information from pages or the web         |
-| `writing`       | Writing                       | Draft, edit, rewrite, and improve written text                      |
-| `communication` | Communication                 | Compose clear messages for chat, email, and everyday correspondence |
-| `shopping`      | Shopping & Commerce           | Compare products, prices, and purchase options                      |
-| `code`          | Coding & Development          | Write, explain, debug, or refactor code                             |
-| `learning`      | Learning & Tutoring           | Explain concepts, teach, and support study or practice              |
-| `productivity`  | Productivity                  | Organize tasks, notes, schedules, and daily workflow                |
-| `language`      | Languages & Translation       | Translate text and adapt tone for other languages                   |
-| `content`       | Social & Content              | Create posts, captions, and social media copy                       |
-| `marketing`     | Marketing & Sales             | Draft outreach, ads, and sales messaging                            |
-| `data`          | Data & Analytics              | Analyze, summarize, and work with data and metrics                  |
-| `automation`    | Browser & Workflow Automation | Automate browser actions and multi-step workflows                   |
+| Tag             | Category                      | Description                                                                |
+| --------------- | ----------------------------- | -------------------------------------------------------------------------- |
+| `research`      | Reading & Research            | Find, read, and summarize information from pages or the web                |
+| `writing`       | Writing                       | Draft, edit, rewrite, and improve written text                             |
+| `communication` | Communication                 | Compose clear messages for chat, email, and everyday correspondence        |
+| `shopping`      | Shopping & Commerce           | Compare products, prices, and purchase options                             |
+| `code`          | Coding & Development          | Write, explain, debug, or refactor code                                    |
+| `learning`      | Learning & Tutoring           | Explain concepts, teach, and support study or practice                     |
+| `productivity`  | Productivity                  | Organize tasks, notes, schedules, and daily workflow                       |
+| `language`      | Languages & Translation       | Translate text and adapt tone for other languages                          |
+| `content`       | Social & Content              | Create posts, captions, and social media copy                              |
+| `marketing`     | Marketing & Sales             | Draft outreach, ads, and sales messaging                                   |
+| `finance`       | Finance                       | Track budgets, analyze financial data, and research markets or investments |
+| `data`          | Data & Analytics              | Analyze, summarize, and work with data and metrics                         |
+| `automation`    | Browser & Workflow Automation | Automate browser actions and multi-step workflows                          |
 
 ## Icons
 
