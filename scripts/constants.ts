@@ -13,6 +13,7 @@ export const SKILL_TAG_CATEGORIES = {
   automation: "Browser & Workflow Automation",
   marketing: "Marketing & Sales",
   productivity: "Productivity",
+  finance: "Finance",
 } as const;
 
 export const KNOWN_SKILL_TAGS = Object.keys(SKILL_TAG_CATEGORIES) as Array<
