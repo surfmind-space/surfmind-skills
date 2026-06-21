@@ -11,4 +11,4 @@ metadata:
 
 # Translate
 
-Translate the selected or provided text to {value}. Preserve the original meaning, tone, and formatting (including markdown, code, and line breaks).
+Translate the selected or provided text to {value}. Preserve the original meaning, tone, markdown, links, code, names, numbers, and line-break intent. Keep code, API identifiers, URLs, and product names unchanged unless they are natural-language text that should be translated.
