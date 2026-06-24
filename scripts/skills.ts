@@ -8,6 +8,8 @@ import {
   KNOWN_SKILL_TAGS,
 } from "./constants.js";
 
+const kebabCaseNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 export type ActionMenu =
   | { type: "preset"; name: string }
   | { type: "inline"; items: ActionMenuItem[] };
@@ -36,7 +38,11 @@ const actionMenuItemSchema = z.object({
 
 const frontmatterSchema = z
   .object({
-    name: z.string().trim().min(1),
+    name: z
+      .string()
+      .trim()
+      .min(1)
+      .regex(kebabCaseNamePattern, "name must be kebab-case"),
     description: z.string().trim().min(1),
     metadata: z
       .object({
@@ -127,13 +133,23 @@ function normalizeFrontmatter(
   }
 
   return {
-    name: frontmatter.name.trim(),
+    name: normalizeSkillName(frontmatter.name),
     description: frontmatter.description.trim(),
     tags,
     author,
     icon,
     actionMenu,
   };
+}
+
+function normalizeSkillName(name: string): string {
+  const trimmed = name.trim();
+  if (!kebabCaseNamePattern.test(trimmed)) return trimmed;
+
+  return trimmed
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
 function normalizeActionMenu(value: unknown, slug: string): ActionMenu | null {

@@ -1,6 +1,6 @@
 ---
-name: Rewrite Longer
-description: Expands text with more detail, clarity, and flow while preserving meaning.
+name: rewrite-longer
+description: Expands selected or provided text with more detail, context, and smoother flow while preserving its meaning. Use when the user says "make this longer", "expand", "add more detail", "elaborate", or wants a short note, sentence, or paragraph lengthened.
 metadata:
   author: surfmind
   icon: ListPlus
