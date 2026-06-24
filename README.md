@@ -64,14 +64,14 @@ idea that deserves to be reusable, you are welcome here.
 <!-- surfmind:official-skills:start -->
 | Skill | Categories | Description |
 | --- | --- | --- |
-| [Answer](./skills/answer/SKILL.md) | Reading & Research, Learning & Tutoring | Answers questions using the selected or visible content as context. |
-| [Explain](./skills/explain/SKILL.md) | Reading & Research, Learning & Tutoring | Explains selected or visible content in clear, approachable language. |
-| [Fix Grammar](./skills/fix-grammar/SKILL.md) | Writing | Corrects grammar, spelling, punctuation, and wording while preserving meaning. |
-| [Improve Writing](./skills/improve-writing/SKILL.md) | Writing | Improves clarity, flow, tone, and polish while preserving intent. |
-| [Rewrite Longer](./skills/rewrite-longer/SKILL.md) | Writing | Expands text with more detail, clarity, and flow while preserving meaning. |
-| [Rewrite Shorter](./skills/rewrite-shorter/SKILL.md) | Writing | Rewrites text to be shorter and more concise while preserving meaning. |
-| [Summarize](./skills/summarize/SKILL.md) | Reading & Research | Creates a concise summary of selected or visible content. |
-| [Translate](./skills/translate/SKILL.md) | Languages & Translation | Translates selected or provided text into the chosen language. |
+| [Answer](./skills/answer/SKILL.md) | Reading & Research, Learning & Tutoring | Answers a question grounded in the selected text or visible page, researching further when the page falls short — always evidence-backed, never invented. Use when the user highlights a passage or is on a page and asks "what does this mean", "answer this", "where does it say", or any who/what/why/how question about that content. |
+| [Explain](./skills/explain/SKILL.md) | Reading & Research, Learning & Tutoring | Explains selected or visible content in plain language — the core idea, jargon, and background — researching further when the page falls short, always evidence-backed. Use when the user says "explain this", "what does this mean", "simplify", "break this down", "ELI5", or "help me understand" about highlighted text, code, or on-screen content. |
+| [Fix Grammar](./skills/fix-grammar/SKILL.md) | Writing | Corrects grammar, spelling, punctuation, and awkward wording in text while preserving its meaning, tone, and formatting. Use when the user says "fix grammar", "proofread", "correct this", "check spelling", or wants typos and grammatical errors cleaned up in selected or provided text. |
+| [Improve Writing](./skills/improve-writing/SKILL.md) | Writing | Edits and rewrites prose to improve clarity, flow, tone, and polish while preserving meaning and voice — a substantive edit beyond grammar fixes. Use when the user says "improve this", "polish", "make this better", "make it flow", "edit my writing", or wants a draft, email, or paragraph refined. |
+| [Rewrite Longer](./skills/rewrite-longer/SKILL.md) | Writing | Expands selected or provided text with more detail, context, and smoother flow while preserving its meaning. Use when the user says "make this longer", "expand", "add more detail", "elaborate", or wants a short note, sentence, or paragraph lengthened. |
+| [Rewrite Shorter](./skills/rewrite-shorter/SKILL.md) | Writing | Condenses selected or provided text to be shorter and more concise while keeping its essential meaning and details. Use when the user says "make this shorter", "shorten", "condense", "trim", "tighten", or "be more concise" about highlighted or provided text. |
+| [Summarize](./skills/summarize/SKILL.md) | Reading & Research | Creates a summary that adapts to the source — article, email thread, chat, PDF, document, image, or transcript — surfacing the key points, decisions, and takeaways. Use when the user says "summarize", "TLDR", "key points", "recap", "overview", or "condense this". |
+| [Translate](./skills/translate/SKILL.md) | Languages & Translation | Translates selected or provided text into a chosen target language while preserving meaning, tone, and formatting. Use when the user says "translate this", "in Spanish/French/etc.", "what does this say in English", or wants highlighted or provided text converted to another language. |
 <!-- surfmind:official-skills:end -->
 
 ## 🌊 Community Skills
