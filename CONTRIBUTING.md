@@ -34,7 +34,7 @@ To add or update an official skill:
 
 ```md
 ---
-name: My Skill
+name: my-skill
 description: A short description shown in SurfMind.
 metadata:
   author: Your Name
@@ -49,7 +49,7 @@ Prompt body goes here.
 
 Required fields:
 
-- `name`
+- `name` - kebab-case, used as the canonical skill name and rendered as title case in generated catalog tables.
 - `description`
 
 Optional fields:
