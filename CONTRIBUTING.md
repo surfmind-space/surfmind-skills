@@ -123,8 +123,7 @@ replaced with the selected action menu value.
 ## Community Skills
 
 Community skills are SurfMind-compatible skills hosted in external public GitHub
-repos. They are listed in [`awesome-skills.md`](./awesome-skills.md), and the SurfMind publish pipeline
-imports them into the public catalog after the PR is merged.
+repos. They are listed in [`awesome-skills.md`](./awesome-skills.md).
 
 To list a community skill:
 
@@ -208,6 +207,3 @@ CI runs `npm run generate:catalog` before validation on every pull request and
 again whenever new commits are pushed to the PR branch. For PR branches in this
 repository, CI commits generated `README.md` or `awesome-skills.md` updates back
 to the PR automatically.
-
-After a merge to `main`, automation refreshes the
-generated tables and publishes the updated SurfMind skills catalog.
