@@ -77,6 +77,7 @@ export const KNOWN_PROMPT_ICONS = [
   "Leaf",
   "Bell",
   "Activity",
+  "SpellCheck",
 ] as const;
 
 export const DEFAULT_SOURCE_BRANCH = "main";
