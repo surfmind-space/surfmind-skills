@@ -69,6 +69,7 @@ export const KNOWN_SKILL_ICONS = [
   "ShoppingCart",
   "Sigma",
   "Sparkles",
+  "Speech",
   "SpellCheck",
   "Star",
   "Table2",
