@@ -1,10 +1,29 @@
 # SurfMind - Contribution Guide
 
-Thanks for helping grow the SurfMind skill catalog. You can contribute in two
+Thanks for helping grow the SurfMind skill catalog. You can contribute in three
 ways:
 
 - Add or improve an official SurfMind skill in `skills/`
 - List an external/community skill in [`awesome-skills.md`](./awesome-skills.md)
+- Request a new skill by opening an issue
+
+## Requesting a New Skill
+
+Don't want to write a skill yourself? Suggest one by opening an issue. Requests
+help maintainers and the community see what's in demand and pick up the work.
+
+1. Open a new issue in this repository.
+2. Use a clear title, prefixed with `[Skill Request]`.
+3. In the body, describe:
+   - **What the skill should do** - the task or workflow it covers.
+   - **Why it's useful** - who benefits and when they'd reach for it.
+   - **Suggested tags** - one or more from the [allowed tags](#tags) table.
+   - **Example prompts or sources** - any references, examples, or links that
+     show what good output looks like.
+
+Maintainers triage requests and label them so contributors can find and claim
+them. If you later decide to build the skill yourself, follow the official or
+community steps below and link back to the request issue in your pull request.
 
 ## Official Skill File Structure
 
