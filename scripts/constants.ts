@@ -74,6 +74,7 @@ export const KNOWN_SKILL_ICONS = [
   "Star",
   "Table2",
   "Target",
+  "TextQuote",
   "TextSearch",
   "Timer",
   "WandSparkles",
