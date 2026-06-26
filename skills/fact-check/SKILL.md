@@ -1,5 +1,5 @@
 ---
-name: claim-checker
+name: fact-check
 description: Extracts factual claims from selected text or a page and checks each against the visible context and available sources, flagging what is supported, weakened, contradicted, or still unverified. Use when the user says "fact check this", "verify", "is this true", "check the sources", or asks about a page's accuracy, credibility, or possible misinformation.
 metadata:
   author: surfmind
@@ -8,7 +8,7 @@ metadata:
     - research
 ---
 
-# Claim Checker
+# Fact Check
 
 Pull the factual claims out of the page and check each against the visible context and available sources. Never invent facts, quotes, numbers, or sources, present a guess as established, or overclaim what the evidence actually supports.
 
@@ -17,7 +17,7 @@ Pull the factual claims out of the page and check each against the visible conte
 3. Classify each claim: **supported, weakly supported, unsupported, contradicted, or needs more evidence.** If a claim is ambiguous (a date that conflates two events, a word like "all" or "always" that may overstate), split it or mark it weakly supported rather than forcing a clean verdict.
 4. When support is incomplete, say what is missing and what evidence would change the verdict.
 
-Report each claim with its **Status, Evidence used, Reasoning,** and what to **verify next.** Preserve exact names, numbers, links, dates, and currencies, and don't let a single low quality source settle a claim on its own.
+Report each claim with its **Status, Evidence used, Reasoning,** and what to **verify next.** Preserve exact names, numbers, links, dates, and currencies, and don't let a single low-quality source settle a claim on its own.
 
 ## Example
 
@@ -32,5 +32,5 @@ Page text: "The EU AI Act took effect in 2024 and bans all facial recognition."
 > **Claim:** The EU AI Act bans all facial recognition.
 > **Status:** Contradicted
 > **Evidence used:** No source on the page supports a blanket ban; the linked summary lists narrow exceptions.
-> **Reasoning:** The Act restricts specific real time biometric uses rather than banning all facial recognition, so "all" overstates it.
-> **Verify next:** The exact prohibited and high risk categories in the primary text.
+> **Reasoning:** The Act restricts specific real-time biometric uses rather than banning all facial recognition, so "all" overstates it.
+> **Verify next:** The exact prohibited and high-risk categories in the primary text.
