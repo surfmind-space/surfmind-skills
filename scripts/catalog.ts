@@ -67,11 +67,17 @@ function buildOfficialSkillsTable(rootDir: string): string {
     rows.push(
       `| [${escapeTableCell(skill.name)}](./skills/${slug}/SKILL.md) | ${escapeTableCell(
         categories,
-      )} | ${escapeTableCell(skill.description.split(".")[0])} |`,
+      )} | ${escapeTableCell(firstSentence(skill.description))} |`,
     );
   }
 
   return rows.join("\n");
+}
+
+function firstSentence(value: string): string {
+  const trimmed = value.trim();
+  const match = /^[^.]*\./.exec(trimmed);
+  return match ? match[0] : trimmed;
 }
 
 function escapeTableCell(value: string): string {
