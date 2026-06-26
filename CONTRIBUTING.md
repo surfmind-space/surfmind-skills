@@ -155,6 +155,19 @@ Community entry format:
 <details>
 <summary><strong>Acme Research Assistant</strong></summary>
 
+Research assistant for technical blogs, docs, and papers.
+
+- Source: https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant
+- Submitted by: acme
+- Tags: research, learning
+
+---
+
+Built by Acme for technical research workflows.
+
+- Website: https://acme.example
+- Demo: https://acme.example/demo
+
 <!-- surfmind:community-skill
 url: https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant
 shortDescription: Research assistant for technical blogs, docs, and papers.
