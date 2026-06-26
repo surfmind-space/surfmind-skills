@@ -67,7 +67,7 @@ function buildOfficialSkillsTable(rootDir: string): string {
     rows.push(
       `| [${escapeTableCell(skill.name)}](./skills/${slug}/SKILL.md) | ${escapeTableCell(
         categories,
-      )} | ${escapeTableCell(skill.description.split(" ")[0])} |`,
+      )} | ${escapeTableCell(skill.description.split(".")[0])} |`,
     );
   }
 
