@@ -56,6 +56,7 @@ export const KNOWN_SKILL_ICONS = [
   "MessageCircleQuestion",
   "MessageCircleReply",
   "Music",
+  "Notebook",
   "PartyPopper",
   "Pencil",
   "PencilLine",
