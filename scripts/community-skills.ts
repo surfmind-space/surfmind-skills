@@ -201,18 +201,18 @@ function readEntryTitle(
 function normalizeSkillFolderUrl(url: string, filePath: string): string {
   const parsed = new URL(url);
   const parts = parsed.pathname.replace(/^\/+|\/+$/g, "").split("/");
-  const [, , view, branch, ...folderParts] = parts;
+  const [owner, repo, view, branch, ...folderParts] = parts;
   const isSkillFolder =
     parsed.hostname === "github.com" &&
-    parts.length >= 5 &&
+    Boolean(owner) &&
+    Boolean(repo) &&
     view === "tree" &&
     Boolean(branch) &&
-    folderParts.length > 0 &&
     folderParts.at(-1) !== "SKILL.md";
 
   if (!isSkillFolder) {
     throw new Error(
-      `${filePath}: url must be a GitHub skill folder URL, for example https://github.com/acme/repo/tree/main/skills/my-skill`,
+      `${filePath}: url must be a GitHub skill folder URL, for example https://github.com/acme/repo/tree/main or https://github.com/acme/repo/tree/main/skills/my-skill`,
     );
   }
 

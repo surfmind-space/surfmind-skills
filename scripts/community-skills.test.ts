@@ -96,6 +96,20 @@ test("allows community skills without a promotion object", () => {
   assert.equal(skills[0]?.promotion, undefined);
 });
 
+test("allows a tree URL whose skill folder is the repo root", () => {
+  const rootSkillFolder = exampleMarkdown.replace(
+    "https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant",
+    "https://github.com/acme/research-assistant/tree/main",
+  );
+
+  const skills = parseCommunitySkills(rootSkillFolder, "awesome-skills.md");
+
+  assert.equal(
+    skills[0]?.url,
+    "https://github.com/acme/research-assistant/tree/main",
+  );
+});
+
 test("rejects unknown community skill tags", () => {
   const unknownTag = exampleMarkdown.replace("  - learning", "  - nope");
 
@@ -126,7 +140,7 @@ tags: []
   );
 });
 
-test("rejects repo root URLs because url must point to a skill folder", () => {
+test("rejects bare repo URLs because url must include a branch", () => {
   const repoRoot = exampleMarkdown.replace(
     "https://github.com/acme/surfmind-skills/tree/main/skills/research-assistant",
     "https://github.com/acme/surfmind-skills",
