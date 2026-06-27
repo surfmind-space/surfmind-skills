@@ -66,6 +66,7 @@ idea that deserves to be reusable, you are welcome here.
 | --- | --- | --- |
 | [Answer](./skills/answer/SKILL.md) | Reading & Research, Learning & Tutoring | Answers a question grounded in the selected text or visible page, researching further when the page falls short, always evidence-backed and never invented. |
 | [Bilingual Reader](./skills/bilingual-reader/SKILL.md) | Languages & Translation, Learning & Tutoring | Translates selected text and explains the idioms, cultural nuance, key terms, and phrasing that should not be read literally. |
+| [Calendar Prep](./skills/calendar-prep/SKILL.md) | Productivity | Turns an event page, calendar invite, email, or notes into key details, an agenda, a preparation checklist, and follow-up reminders. |
 | [Caption Assistant](./skills/caption-assistant/SKILL.md) | Social & Content, Writing & Communication | Writes captions, accessibility alt text, and short image or page descriptions tailored to the visible content and audience. |
 | [Draft From Notes](./skills/draft-from-notes/SKILL.md) | Writing & Communication, Productivity | Turns rough notes, bullet points, outlines, or copied fragments into a coherent draft (email, memo, post, report, or document section) while preserving facts and marking gaps instead of inventing detail. |
 | [Explain](./skills/explain/SKILL.md) | Reading & Research, Learning & Tutoring | Explains selected or visible content in plain language, including the core idea, jargon, and background, while researching further when the page falls short and staying evidence-backed. |
