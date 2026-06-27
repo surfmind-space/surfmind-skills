@@ -74,6 +74,7 @@ export const KNOWN_SKILL_ICONS = [
   "SpellCheck",
   "Star",
   "Table2",
+  "Tags",
   "Target",
   "TextQuote",
   "TextSearch",
