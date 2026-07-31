@@ -15,13 +15,25 @@
 </p>
 
 <p align="center">
-  <a href="https://surfmind.ai">Official Site</a>
-  ·
-  <a href="#-official-surfmind-skills">SurfMind Skills</a>
-  ·
-  <a href="./awesome-skills.md">Community Skills</a>
-  ·
-  <a href="#-contributing">Contribute</a>
+  <strong><a href="https://surfmind.ai">Official Site</a></strong>
+  &nbsp;·&nbsp;
+  <strong><a href="#-official-surfmind-skills">SurfMind Skills</a></strong>
+  &nbsp;·&nbsp;
+  <strong><a href="./awesome-skills.md">Community Skills</a></strong>
+  &nbsp;·&nbsp;
+  <strong><a href="#-contributing">Contribute</a></strong>
+</p>
+
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/surfmind-instant-ai-chat/pghallcbnfabbgfijhbcldaapmgidnaa">
+    <img alt="Chrome Extension" src="https://img.shields.io/badge/Chrome%20Extension-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" />
+  </a>
+  <a href="https://apps.apple.com/us/app/surfmind/id6753634655">
+    <img alt="Safari Extension" src="https://img.shields.io/badge/Safari%20Extension-000000?style=for-the-badge&logo=safari&logoColor=white" />
+  </a>
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/surfmind/">
+    <img alt="Firefox Addon" src="https://img.shields.io/badge/Firefox%20Addon-FF7139?style=for-the-badge&logo=firefoxbrowser&logoColor=white" />
+  </a>
 </p>
 
 ## 💡 What Is This?
